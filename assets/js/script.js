@@ -79,6 +79,17 @@ function endQuiz() {
     clearInterval(timerInterval);
     var finalScore = score * timeLeft;
     alert("Your final score is " + finalScore);
+    // event listener for submit button
+    button.style.display = "block"
+    var submitBtn = document.getElementById("submit-score");
+    submitBtn.addEventListener("click", function() {
+      var initials = document.getElementById("initials").value;
+      var scoreData = { initials: initials, score: score * timeLeft };
+      highScores.push(scoreData);
+      localStorage.setItem("highScores", JSON.stringify(highScores));
+      window.location.href = "./highscores.html";
+    });
+
 }
 
 // start quiz
@@ -92,24 +103,15 @@ var startBtn = document.querySelector(".start-button");
 startBtn.addEventListener("click", startQuiz);
 
 // event listener to hide start button after start and hide answers until started
-startBtn.addEventListener('click', function() {
+startBtn.addEventListener("click", function() {
     // hide the start button
-    startBtn.style.display = 'none';
+    startBtn.style.display = "none";
     // show the answer buttons
     answerEls.forEach(function(button) {
-      button.style.display = 'block';
+      button.style.display = "block";
     });
   });
 
-  // event listener for submit button
-var submitBtn = document.getElementById("submit-score");
-submitBtn.addEventListener("click", function() {
-    var initials = document.getElementById("initials").value;
-    var scoreData = { initials: initials, score: score * timeLeft };
-    highScores.push(scoreData);
-    localStorage.setItem("highScores", JSON.stringify(highScores));
-    window.location.href = "./highscores.html";
-});
 
 // event listener for clear button on high score page
 var clearBtn = document.getElementById("clear-scores");
