@@ -80,7 +80,7 @@ function endQuiz() {
     var finalScore = score * timeLeft;
     alert("Your final score is " + finalScore);
     // event listener for submit button
-    button.style.display = "block"
+    document.getElementById("initials-form").style.display = "block";
     var submitBtn = document.getElementById("submit-score");
     submitBtn.addEventListener("click", function() {
       var initials = document.getElementById("initials").value;
@@ -89,7 +89,17 @@ function endQuiz() {
       localStorage.setItem("highScores", JSON.stringify(highScores));
       window.location.href = "./highscores.html";
     });
-
+    function updateHighScoresList() {
+        var highScoresList = document.getElementById("high-scores-list");
+        highScoresList.innerHTML = "";
+        for (var i = 0; i < highScores.length; i++) {
+            var highScore = highScores[i];
+            var listItem = document.createElement("li");
+            listItem.textContent = highScore.initials + " - " + highScore.score;
+            highScoresList.appendChild(listItem);
+        }
+    };
+    updateHighScoresList();
 }
 
 // start quiz
@@ -123,18 +133,7 @@ clearBtn.addEventListener("click", function() {
 
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-function updateHighScoresList() {
-    var highScoresList = document.getElementById("high-scores-list");
-    highScoresList.innerHTML = "";
-    for (var i = 0; i < highScores.length; i++) {
-        var highScore = highScores[i];
-        var listItem = document.createElement("li");
-        listItem.textContent = highScore.initials + " - " + highScore.score;
-        highScoresList.appendChild(listItem);
-    }
-}
 
-updateHighScoresList();
-// Get DOM elements
-// var quizContainer = document.getElementById("quiz-container");
+// updateHighScoresList();
+
 
