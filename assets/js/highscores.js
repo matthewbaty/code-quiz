@@ -8,29 +8,6 @@ clearBtn.addEventListener("click", function() {
     updateHighScoresList();
 });
 
-updateHighScoresList();
-// var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
-// if (storedHighScores !== null) {
-//     highScores = storedHighScores;
-// }
-
-// function updateHighScoresList() {
-//     var highScoresList = document.getElementById("high-scores-list");
-//     highScoresList.innerHTML = "";
-//     for (var i = 0; i < highScores.length; i++) {
-//         var highScore = highScores[i];
-//         var listItem = document.createElement("li");
-//         listItem.textContent = highScore.initials + " - " + highScore.score;
-//         highScoresList.appendChild(listItem);
-//     }
-// }
-
-// load high scores from local storage
-var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
-if (storedHighScores !== null) {
-    highScores = storedHighScores;
-}
-
 // save high scores to local storage
 function saveHighScores() {
     localStorage.setItem("highScores", JSON.stringify(highScores));
@@ -49,16 +26,6 @@ function addHighScore(initials, score) {
     updateHighScoresList();
 }
 
-// function updateHighScoresList() {
-//     var highScoresList = document.getElementById("high-scores-list");
-//     highScoresList.innerHTML = "";
-//     for (var i = 0; i < highScores.length; i++) {
-//         var li = document.createElement("li");
-//         li.textContent = highScores[i].initials + " - " + highScores[i].score;
-//         highScoresList.appendChild(li);
-//     }
-// }
-
 function updateHighScoresList() {
     var highScoresList = document.getElementById("high-scores-list");
     highScoresList.innerHTML = "";
@@ -75,3 +42,5 @@ function updateHighScoresList() {
       highScoresList.appendChild(li);
     }
   }
+  
+updateHighScoresList();

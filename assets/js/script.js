@@ -75,7 +75,6 @@ function selectAnswer() {
     }
 }
 
-
 // end quiz
 function endQuiz() {
     clearInterval(timerInterval);
@@ -83,17 +82,6 @@ function endQuiz() {
     alert("Your final score is " + finalScore);
     document.getElementById("initials-form").style.display = "block";
 }
-
-// function updateHighScoresList() {
-//     var highScoresList = document.getElementById("high-scores-list");
-//     highScoresList.innerHTML = "";
-//     for (var i = 0; i < highScores.length; i++) {
-//         var highScore = highScores[i];
-//         var listItem = document.createElement("li");
-//         listItem.textContent = highScore.initials + " - " + highScore.score;
-//         highScoresList.appendChild(listItem);
-//     }
-// }
 
 // event listener for submit button
 var submitBtn = document.getElementById("submit-score");
@@ -125,18 +113,3 @@ startBtn.addEventListener("click", function() {
         button.style.display = "block";
     });
 });
-
-
-// // event listener for clear button on high score page
-// var clearBtn = document.getElementById("clear-scores");
-// clearBtn.addEventListener("click", function() {
-//     highScores = [];
-//     localStorage.removeItem("highScores");
-//     updateHighScoresList();
-// });
-
-// // var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-// var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
-// if (storedHighScores !== null) {
-//     highScores = storedHighScores;
-// }
