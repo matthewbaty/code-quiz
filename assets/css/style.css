@@ -12,9 +12,9 @@ h1 {
 }
 
 .answer {
+    display: flex;
     padding: 5px;
     margin: 5px;
-    display: flex;
     flex-direction: row;
     justify-content: center;
 }
@@ -29,4 +29,20 @@ h1 {
     position: absolute;
     top: 15px;
     left: 15px;
+}
+
+#high-scores-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.score-buttons {
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+    flex-direction: row;
+    justify-content: center;
 }
