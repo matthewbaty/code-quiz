@@ -2,6 +2,7 @@
 var questionEl = document.querySelector("#question-holder");
 var answerEls = document.querySelectorAll(".answer");
 var startBtn = document.querySelector(".start-button");
+var quizInstructions = document.getElementById('quiz-instructions');
 var currentQuestionIndex = 0;
 var score = 0;
 var timerEl = document.querySelector("#timer");
@@ -104,8 +105,10 @@ function startQuiz() {
 var startBtn = document.querySelector(".start-button");
 startBtn.addEventListener("click", startQuiz);
 
-// event listener to hide start button after start and hide answers until started
+// event listener for hiding/showing buttons
 startBtn.addEventListener("click", function() {
+    // hide quiz instructions
+    quizInstructions.style.display = 'none';
     // hide the start button
     startBtn.style.display = "none";
     // show the answer buttons
